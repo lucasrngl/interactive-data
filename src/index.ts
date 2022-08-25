@@ -5,7 +5,7 @@ main();
 
 export default async function main(): Promise<void> {
   menu();
-  const input = await getInput();
+  const input: number = await getInput();
   switch (input) {
     case 1:
       stack();
