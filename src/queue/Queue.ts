@@ -20,7 +20,11 @@ export default class Queue<T> {
   public dequeue(): string {
     if (this.isEmpty()) return null;
     let firstNode: Node<T> = this.entryRef;
-    let auxNode = this.entryRef;
+    let auxNode: Node<T> = this.entryRef;
+    if (auxNode.getNodeRef() === null) {
+      this.entryRef = auxNode.getNodeRef();
+      return firstNode.toString();
+    }
     while (true) {
       if (firstNode.getNodeRef() === null) {
         auxNode.setNodeRef(null);
@@ -43,17 +47,18 @@ export default class Queue<T> {
   }
 
   public toString(): string {
-    let returnString: string = 'Queue {\n  ';
+    let returnString: string = 'Queue {\n';
     let auxNode = this.entryRef;
     while (true) {
+      if (this.isEmpty()) break;
       if (auxNode === null) {
-        returnString += 'null';
+        returnString += 'null\n';
         break;
       }
       returnString += `[Node{data=${auxNode.getObject()}}]->`;
       auxNode = auxNode.getNodeRef();
     }
-    returnString += '\n}';
+    returnString += '}';
     return returnString;
   }
 }
