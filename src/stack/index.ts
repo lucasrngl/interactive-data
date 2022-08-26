@@ -13,7 +13,7 @@ export default async function main() {
     case 1:
       value++;
       stack.push(new Node(value));
-      console.log(stack.toString() + '\n');
+      console.log(`${stack}\n`);
       console.log('Item successfully added!\n');
       main();
       break;
@@ -24,7 +24,7 @@ export default async function main() {
         break;
       }
       const poppedItem = stack.pop();
-      console.log(stack.toString() + '\n');
+      console.log(`${stack}\n`);
       console.log(`Item [${poppedItem}] successfully removed!\n`);
       value = stack.isEmpty() ? 0 : value - 1;
       main();
@@ -35,7 +35,7 @@ export default async function main() {
         main();
         break;
       }
-      console.log(stack.toString() + '\n');
+      console.log(`${stack}\n`);
       main();
       break;
     case 4:
@@ -56,6 +56,5 @@ function menu(): void {
   console.log('|  4. Back to main menu               |');
   console.log('|  5. Exit                            |');
   console.log('|                                     |');
-  console.log('#-------------------------------------#');
-  console.log();
+  console.log('#-------------------------------------#\n');
 }
