@@ -1,4 +1,5 @@
 import stack from './stack';
+import queue from './queue';
 import { getInput } from './util/get-input';
 
 main();
@@ -11,6 +12,8 @@ export default async function main(): Promise<void> {
       stack();
       break;
     case 2:
+      queue();
+      break;
     case 3:
     case 4:
     case 5:
